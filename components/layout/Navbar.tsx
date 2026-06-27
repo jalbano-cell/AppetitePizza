@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, ShoppingBag } from "lucide-react";
 import { motion } from "framer-motion";
@@ -42,9 +43,16 @@ export function Navbar() {
             <Link
               href="/"
               aria-label="Appetite Pizza — Home"
-              className="font-display text-2xl font-bold text-cream tracking-tight hover:text-cream/80 transition-colors"
+              className="flex items-center hover:opacity-80 transition-opacity"
             >
-              APPETITE
+              <Image
+                src="/logo-white.png"
+                alt="Appetite Pizza"
+                width={160}
+                height={48}
+                className="h-10 w-auto"
+                priority
+              />
             </Link>
 
             {/* Desktop Nav */}

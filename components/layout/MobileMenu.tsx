@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
@@ -59,9 +60,13 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             className="fixed top-0 right-0 bottom-0 z-50 w-80 bg-charcoal border-l border-white/5 md:hidden flex flex-col"
           >
             <div className="flex items-center justify-between p-6 border-b border-white/5">
-              <span className="font-display text-xl font-bold text-cream tracking-tight" aria-hidden>
-                APPETITE
-              </span>
+              <Image
+                src="/logo-white.png"
+                alt="Appetite Pizza"
+                width={130}
+                height={40}
+                className="h-8 w-auto"
+              />
               <button
                 onClick={onClose}
                 className="p-2 text-stone hover:text-cream transition-colors rounded-lg hover:bg-white/5"
