@@ -61,10 +61,10 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           >
             <div className="flex items-center justify-between p-6 border-b border-white/5">
               <Image
-                src="/logo-white.png"
+                src="/logo.png"
                 alt="Appetite Pizza"
-                width={130}
-                height={40}
+                width={309}
+                height={101}
                 className="h-8 w-auto"
               />
               <button

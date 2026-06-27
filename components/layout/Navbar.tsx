@@ -46,10 +46,10 @@ export function Navbar() {
               className="flex items-center hover:opacity-80 transition-opacity"
             >
               <Image
-                src="/logo-white.png"
+                src="/logo.png"
                 alt="Appetite Pizza"
-                width={160}
-                height={48}
+                width={309}
+                height={101}
                 className="h-10 w-auto"
                 priority
               />
