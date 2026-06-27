@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Container } from "@/components/ui/Container";
-import { PizzaVisual } from "@/components/shared/PizzaVisual";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 
 const TRUST_ITEMS = ["No account needed", "Ready in ~15 min", "Pay online or in person"];
@@ -13,31 +13,28 @@ const TRUST_ITEMS = ["No account needed", "Ready in ~15 min", "Pay online or in 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
-      {/* Ambient glow */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden>
-        <div className="absolute top-[25%] left-[35%] w-[700px] h-[700px] rounded-full bg-brand/[0.07] blur-[160px] -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-[-5%] w-[500px] h-[500px] rounded-full bg-flame/[0.04] blur-[120px]" />
-      </div>
-
-      {/* Subtle grid */}
-      <div
-        className="absolute inset-0 opacity-[0.018] pointer-events-none"
+      {/* Background photo */}
+      <Image
+        src="/hero-bg.jpg"
+        alt=""
+        fill
+        priority
+        quality={90}
+        className="object-cover object-[60%_center]"
         aria-hidden
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(250,245,238,1) 1px, transparent 1px), linear-gradient(90deg, rgba(250,245,238,1) 1px, transparent 1px)",
-          backgroundSize: "72px 72px",
-        }}
       />
 
+      {/* Dark overlays for readability */}
+      <div className="absolute inset-0 bg-black/60 pointer-events-none" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" aria-hidden />
+
       <Container className="relative z-10 pt-36 pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-4 items-center">
-          {/* ── Left: Copy ── */}
+        <div className="max-w-2xl">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="max-w-xl"
           >
             <motion.div variants={fadeUp} className="mb-8">
               <Badge variant="brand">
@@ -84,16 +81,6 @@ export function Hero() {
                 </span>
               ))}
             </motion.div>
-          </motion.div>
-
-          {/* ── Right: Visual ── */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="hidden lg:flex justify-center items-center"
-          >
-            <PizzaVisual />
           </motion.div>
         </div>
       </Container>
