@@ -13,13 +13,17 @@ export function CTABanner() {
 
   return (
     <section className="relative py-32 overflow-hidden bg-black">
-      {/* Background glow */}
+      {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand/8 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-brand/10 blur-[140px]" />
+        <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-[320px] h-[320px] rounded-full bg-flame/5 blur-[100px]" />
       </div>
 
+      {/* Grain overlay */}
+      <div className="absolute inset-0 bg-noise opacity-[0.022] pointer-events-none" aria-hidden />
+
       {/* Top border accent */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/30 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent" />
 
       <Container narrow>
         <motion.div

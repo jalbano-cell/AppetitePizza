@@ -40,7 +40,7 @@ export function Button({
   external,
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer select-none font-medium tracking-wide",
+    "inline-flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer select-none font-medium tracking-wide active:scale-[0.97]",
     variantStyles[variant],
     sizeStyles[size],
     disabled && "opacity-40 cursor-not-allowed pointer-events-none",

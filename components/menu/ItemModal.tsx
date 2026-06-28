@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { X, Check, ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { QuantitySelector } from "./QuantitySelector";
@@ -246,18 +247,16 @@ export function ItemModal() {
             {/* Scrollable content */}
             <div className="flex-1 overflow-y-auto overscroll-contain">
               {/* Image + description */}
-              <div
-                className="h-32 relative flex-shrink-0"
-                style={{
-                  background: `radial-gradient(ellipse at 45% 55%, ${item.accentColor}20 0%, transparent 65%), linear-gradient(180deg, #1a1714 0%, #0d0a08 100%)`,
-                }}
-              >
-                <div className="absolute inset-0 flex items-center justify-center text-5xl opacity-15 blur-sm select-none">
-                  {item.category === "Pizza" && "🍕"}
-                  {item.category === "Sides" && "🍟"}
-                  {item.category === "Drinks" && "🥤"}
-                  {item.category === "Desserts" && "🍮"}
-                </div>
+              <div className="h-44 relative flex-shrink-0 bg-black overflow-hidden">
+                <Image
+                  src={`/menu/${item.id}.jpg`}
+                  alt={item.name}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               </div>
 
               <div className="px-5 pt-5 pb-3 space-y-1">

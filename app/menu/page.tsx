@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { MenuContent } from "@/components/menu/MenuContent";
 
@@ -16,8 +17,26 @@ export default function MenuPage() {
   return (
     <>
       {/* Page hero */}
-      <section className="pt-40 pb-16 bg-black border-b border-white/5">
-        <Container>
+      <section className="relative pt-44 pb-28 overflow-hidden bg-black">
+        {/* Background photo */}
+        <Image
+          src="/menu-hero.jpg"
+          alt="Pizza being placed into a wood-fired stone oven"
+          fill
+          priority
+          quality={90}
+          className="object-cover object-center"
+        />
+
+        {/* Dark overlays */}
+        <div className="absolute inset-0 bg-black/65 pointer-events-none" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/25 pointer-events-none" aria-hidden />
+
+        {/* Bottom fade into menu content */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent pointer-events-none" aria-hidden />
+
+        <Container className="relative z-10">
           <p className="text-brand text-sm font-semibold uppercase tracking-widest mb-5">
             The Menu
           </p>

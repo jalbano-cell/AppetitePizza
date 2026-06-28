@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check, MoonStar } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -73,11 +73,23 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-x-5 gap-y-2">
-              {TRUST_ITEMS.map((item) => (
-                <span key={item} className="flex items-center gap-1.5 text-muted text-sm">
-                  <span className="text-brand text-xs">✓</span>
+            <motion.div variants={fadeUp} className="flex items-center flex-wrap gap-y-2">
+              {/* Halal badge — visually distinct from trust items */}
+              <span className="flex items-center">
+                <span className="flex items-center gap-1.5 bg-green-900/25 border border-green-700/30 rounded-full px-2.5 py-1 text-green-400 text-xs font-medium">
+                  <MoonStar size={11} aria-hidden />
+                  Halal Certified
+                </span>
+                <span className="mx-4 text-white/15 select-none" aria-hidden>|</span>
+              </span>
+
+              {TRUST_ITEMS.map((item, i) => (
+                <span key={item} className="flex items-center text-stone/75 text-sm">
+                  <Check size={12} className="text-brand mr-1.5 flex-shrink-0" aria-hidden />
                   {item}
+                  {i < TRUST_ITEMS.length - 1 && (
+                    <span className="mx-4 text-white/15 select-none" aria-hidden>|</span>
+                  )}
                 </span>
               ))}
             </motion.div>

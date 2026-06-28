@@ -70,9 +70,15 @@ export function StorySection() {
                   "radial-gradient(ellipse at 40% 30%, #3D1208 0%, #1A0804 40%, #090300 80%, #050200 100%)",
               }}
             >
-              {/* Large pizza visual */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-15 text-[12rem] select-none blur-sm">
-                🍕
+              {/* Abstract visual */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-25">
+                <div
+                  className="w-64 h-64 rounded-full"
+                  style={{
+                    background: "radial-gradient(ellipse at 45% 40%, #5C2010 0%, #2A0E06 50%, transparent 80%)",
+                    boxShadow: "0 0 0 1px rgba(193,58,27,0.08), 0 0 80px rgba(193,58,27,0.12)",
+                  }}
+                />
               </div>
 
               {/* Overlay text */}

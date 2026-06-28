@@ -33,7 +33,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-40 transition-all duration-500",
           scrolled
-            ? "bg-black/90 backdrop-blur-lg border-b border-white/5 py-0"
+            ? "bg-black/92 backdrop-blur-xl border-b border-white/8 shadow-[0_1px_0_0_rgba(255,255,255,0.04)] py-0"
             : "bg-transparent py-2"
         )}
       >
@@ -81,7 +81,7 @@ export function Navbar() {
             <div className="hidden md:flex items-center gap-3">
               <button
                 onClick={() => dispatch({ type: "TOGGLE_CART" })}
-                className="relative p-2.5 rounded-full hover:bg-white/6 text-stone hover:text-cream transition-colors"
+                className="relative p-2.5 rounded-full hover:bg-white/8 text-stone hover:text-cream transition-colors"
                 aria-label={itemCount > 0 ? `Open cart, ${itemCount} item${itemCount !== 1 ? "s" : ""}` : "Open cart"}
               >
                 <ShoppingBag size={20} aria-hidden />

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
@@ -15,39 +16,22 @@ export function MenuCard({ item }: { item: MenuItem }) {
       variants={fadeUp}
       whileHover={{ y: -3 }}
       transition={{ duration: 0.22 }}
-      className="group flex flex-col rounded-2xl overflow-hidden border border-white/5 hover:border-white/10 bg-charcoal transition-colors cursor-pointer"
+      className="group flex flex-col rounded-2xl overflow-hidden border border-white/5 hover:border-brand/15 bg-charcoal transition-all duration-300 cursor-pointer"
       onClick={() => dispatch({ type: "OPEN_ITEM_MODAL", item })}
       role="article"
       aria-label={`${item.name} — ${item.category}`}
     >
       {/* Image area */}
-      <div
-        className="relative h-44 overflow-hidden flex-shrink-0"
-        aria-hidden
-        style={{
-          background: `radial-gradient(ellipse at 45% 40%, ${item.accentColor}1A 0%, transparent 60%), linear-gradient(180deg, #1a1714 0%, #0d0a08 100%)`,
-        }}
-      >
-        {/* Background emoji */}
-        <div className="absolute inset-0 flex items-center justify-center text-5xl opacity-[0.14] blur-[3px] select-none">
-          {item.category === "Pizza" && "🍕"}
-          {item.category === "Sides" && "🍟"}
-          {item.category === "Drinks" && "🥤"}
-          {item.category === "Desserts" && "🍮"}
-        </div>
-
-        {/* Subtle pizza ring for pizzas */}
-        {item.category === "Pizza" && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div
-              className="w-24 h-24 rounded-full border transition-transform duration-500 group-hover:scale-110"
-              style={{
-                borderColor: `${item.accentColor}15`,
-                background: `radial-gradient(ellipse at 45% 40%, ${item.accentColor}0C 0%, transparent 70%)`,
-              }}
-            />
-          </div>
-        )}
+      <div className="relative h-44 overflow-hidden flex-shrink-0 bg-black" aria-hidden>
+        <Image
+          src={`/menu/${item.id}.jpg`}
+          alt=""
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        />
+        {/* Gradient overlay for badge readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
 
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">

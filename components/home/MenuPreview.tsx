@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -16,31 +17,22 @@ function PreviewCard({ item, index }: { item: (typeof FEATURED_ITEMS)[0]; index:
       variants={fadeUp}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.25 }}
-      className="group relative rounded-2xl overflow-hidden border border-white/5 bg-charcoal flex flex-col"
+      className="group relative rounded-2xl overflow-hidden border border-white/5 hover:border-brand/15 bg-charcoal flex flex-col transition-colors duration-300"
     >
-      {/* Image placeholder */}
-      <div
-        className="relative h-52 overflow-hidden"
-        style={{
-          background: `radial-gradient(ellipse at 45% 40%, ${item.accentColor}22 0%, transparent 65%), linear-gradient(180deg, #1a1714 0%, #0d0a08 100%)`,
-        }}
-      >
-        {/* Pizza circle suggestion */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div
-            className="w-28 h-28 rounded-full border transition-transform duration-500 group-hover:scale-110"
-            style={{
-              borderColor: `${item.accentColor}18`,
-              background: `radial-gradient(ellipse at 45% 40%, ${item.accentColor}14 0%, transparent 70%)`,
-            }}
-          />
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center text-5xl opacity-20 blur-[2px] select-none">
-          🍕
-        </div>
+      {/* Image */}
+      <div className="relative h-52 overflow-hidden bg-black">
+        <Image
+          src={`/menu/${item.id}.jpg`}
+          alt={item.name}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent" />
 
         {/* Index number watermark */}
-        <div className="absolute top-4 left-4 font-display text-7xl font-bold text-white/[0.04] leading-none select-none">
+        <div className="absolute top-4 left-4 font-display text-7xl font-bold text-white/[0.18] leading-none select-none">
           {String(index + 1).padStart(2, "0")}
         </div>
 

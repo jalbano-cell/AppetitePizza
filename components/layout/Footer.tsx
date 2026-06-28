@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Instagram, Facebook, Twitter } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { HalalSeal } from "@/components/shared/HalalSeal";
 import { FOOTER_LINKS, SITE_NAME } from "@/lib/constants";
 
 const socials = [
@@ -20,9 +22,16 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link
               href="/"
-              className="font-display text-2xl font-bold text-cream tracking-tight block mb-4"
+              aria-label="Appetite Pizza — Home"
+              className="block mb-4 hover:opacity-80 transition-opacity"
             >
-              APPETITE
+              <Image
+                src="/logo.png"
+                alt="Appetite Pizza"
+                width={180}
+                height={59}
+                className="h-9 w-auto"
+              />
             </Link>
             <p className="text-stone text-sm leading-relaxed max-w-xs">
               Handcrafted pizza made for pickup. Skip the fees. Taste the difference.
@@ -33,11 +42,20 @@ export function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-stone hover:text-cream transition-colors"
+                  className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 flex items-center justify-center text-stone hover:text-cream transition-all duration-200"
                 >
                   <Icon size={15} />
                 </a>
               ))}
+            </div>
+
+            {/* Halal certification seal */}
+            <div className="mt-8 flex items-center gap-3">
+              <HalalSeal size={48} />
+              <div>
+                <p className="text-green-400 text-xs font-semibold leading-tight">Halal Certified</p>
+                <p className="text-green-100/40 text-[11px] leading-tight mt-0.5">All meats certified &amp; ethically sourced</p>
+              </div>
             </div>
           </div>
 

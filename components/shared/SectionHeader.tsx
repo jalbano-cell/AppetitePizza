@@ -24,7 +24,10 @@ export function SectionHeader({
   return (
     <div className={cn(align === "center" && "text-center", className)}>
       {eyebrow && (
-        <div className={cn("mb-5", align === "center" && "flex justify-center")}>
+        <div className={cn("mb-5", align === "center" ? "flex justify-center" : "flex items-center gap-3")}>
+          {align === "left" && (
+            <div className="w-6 h-px bg-brand/50 flex-shrink-0" aria-hidden />
+          )}
           <Badge variant={eyebrowVariant}>{eyebrow}</Badge>
         </div>
       )}
