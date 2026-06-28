@@ -66,7 +66,7 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.explore.map((l) => (
-                <li key={l.href}>
+                <li key={l.label}>
                   <Link
                     href={l.href}
                     className="text-stone hover:text-cream text-sm transition-colors"
@@ -85,7 +85,7 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.order.map((l) => (
-                <li key={l.href}>
+                <li key={l.label}>
                   <Link
                     href={l.href}
                     className="text-stone hover:text-cream text-sm transition-colors"
@@ -104,7 +104,7 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.legal.map((l) => (
-                <li key={l.href}>
+                <li key={l.label}>
                   <Link
                     href={l.href}
                     className="text-stone hover:text-cream text-sm transition-colors"
