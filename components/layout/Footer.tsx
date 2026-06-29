@@ -122,7 +122,17 @@ export function Footer() {
           <p className="text-stone text-sm">
             © {year} {SITE_NAME}. All rights reserved.
           </p>
-          <p className="text-muted text-sm">Made with care. Served with pride.</p>
+          <p className="text-muted text-sm">
+            Designed &amp; Managed by{" "}
+            <a
+              href="https://omnigriddigital.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-stone hover:text-white transition-colors duration-200 underline underline-offset-2"
+            >
+              OmniGrid Digital
+            </a>
+          </p>
         </div>
       </Container>
     </footer>
